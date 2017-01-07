@@ -1,5 +1,7 @@
 # test-until
 
+[![Build Status](https://travis-ci.org/BinaryMuse/test-until.svg?branch=master)](https://travis-ci.org/BinaryMuse/test-until)
+
 A utility that returns a promise that resolves when the passed function returns true. It works like Jasmine's `waitsFor`, but Promise based.
 
 ## Installation
