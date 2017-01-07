@@ -1,4 +1,4 @@
-let defaultTimeout = 1000;
+var defaultTimeout = 1000;
 
 function until(_latch, _message, _timeout) {
   var start = new Date().getTime();
@@ -47,7 +47,7 @@ function until(_latch, _message, _timeout) {
       var delta = now - start;
       if (delta > timeout) {
         if (!error) {
-          error = new Error(`timed out waiting until ${message}`);
+          error = new Error('timed out waiting until ' + message);
         }
         error.message = 'async(' + timeout + 'ms): ' + error.message;
         return reject(error);
