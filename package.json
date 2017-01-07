@@ -1,12 +1,18 @@
 {
-  "name": "mocha-until",
+  "name": "test-until",
   "version": "1.0.0",
-  "description": "Return a promise that is resolved when a function eventually returns true",
+  "description": "Utility method that returns a promise that resolves when a condition returns true",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["mocha", "async", "await", "promise"],
+  "keywords": [
+    "unit testing",
+    "mocha",
+    "async",
+    "await",
+    "promise"
+  ],
   "author": "Michelle Tilley <michelle@michelletilley.net>",
   "license": "MIT"
 }
