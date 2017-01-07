@@ -6,6 +6,12 @@
   "scripts": {
     "test": "mocha test"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BinaryMuse/test-until.git"
+  },
+  "url": "https://github.com/BinaryMuse/test-until",
+  "bugs": "https://github.com/BinaryMuse/test-until/issues",
   "keywords": [
     "unit testing",
     "mocha",
