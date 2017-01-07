@@ -4,7 +4,7 @@
   "description": "Utility method that returns a promise that resolves when a condition returns true",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test"
   },
   "keywords": [
     "unit testing",
@@ -14,5 +14,9 @@
     "promise"
   ],
   "author": "Michelle Tilley <michelle@michelletilley.net>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
 }
