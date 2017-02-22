@@ -12,6 +12,24 @@ describe('until', function() {
     });
   });
 
+  it('stops running the latch function after it returns true', function(done) {
+    let count = 0;
+    const promise = until(() => {
+      count++;
+      return count === 5
+    })
+    promise.then(() => {
+      // Latch function is done; let's wait to ensure it's not called more.
+      setTimeout(() => {
+        if (count === 5) {
+          done();
+        } else {
+          done(new Error('We called latch after it return true!'))
+        }
+      }, 5)
+    })
+  })
+
   it('allows the latch function to return a promise', function(done) {
     let val = null;
     const promise = until(() => new Promise((resolve, reject) => {
