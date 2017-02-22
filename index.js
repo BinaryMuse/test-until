@@ -41,23 +41,25 @@ function until(_latch, _message, _timeout) {
   return new Promise(function(resolve, reject) {
     var checker = function() {
       Promise.resolve(latchFunction(setError))
-        .then(result => {
-          if (result) { return resolve(result); }
-        })
         .catch(err => {
           setError(err);
+          return false;
         })
-        .then(() => {
-          var now = new Date().getTime();
-          var delta = now - start;
-          if (delta > timeout) {
-            if (!error) {
-              error = new Error('timed out waiting until ' + message);
-            }
-            error.message = 'async(' + timeout + 'ms): ' + error.message;
-            return reject(error);
+        .then(result => {
+          if (result) {
+            return resolve(result);
           } else {
-            return setTimeout(checker);
+            var now = new Date().getTime();
+            var delta = now - start;
+            if (delta > timeout) {
+              if (!error) {
+                error = new Error('timed out waiting until ' + message);
+              }
+              error.message = 'async(' + timeout + 'ms): ' + error.message;
+              return reject(error);
+            } else {
+              return setTimeout(checker);
+            }
           }
         })
     };
