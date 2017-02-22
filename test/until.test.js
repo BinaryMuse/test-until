@@ -12,6 +12,21 @@ describe('until', function() {
     });
   });
 
+  it('allows the latch function to return a promise', function(done) {
+    let val = null;
+    const promise = until(() => new Promise((resolve, reject) => {
+      if (val === 42) {
+        resolve(true);
+      } else {
+        reject(false);
+      }
+    }));
+    setTimeout(() => val = 42, 20);
+    promise.then(() => {
+      done();
+    });
+  })
+
   it('returns a promise that rejects if the latch function never returns true with the timeout', function(done) {
     let val = null;
     const promise = until(() => val === 42, 20);
