@@ -20,7 +20,7 @@ test-until requires a global variable `Promise` which needs to be a A+ compliant
 var promise = until(checkFunc, message, timeout)
 ```
 
-* `checkFunc` - A function that returns a truthy value once the promise should be resolved. `until` will call this function repeatedly until it returns `true` or the timeout elapses.
+* `checkFunc` - A function that returns a truthy value or truthy Promise once the promise should be resolved. `until` will call this function repeatedly until it returns `true`, a Promise that resolves to `true`, or the timeout elapses.
 * `message` *(optional)* - A message to help identify failing cases. For example, setting this to `"value == 42"` will reject with an error of `"timed out waiting until value == 42"` if it times out. Defaults to `"something happens"`.
 * `timeout` *(optional)* - The number of milliseconds to wait before timing out and rejecting the promise. Defaults to `1000`.
 
